@@ -1,0 +1,15 @@
+name: Fail
+
+on:
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  test:
+    name: Test Commit
+    runs-on: ubuntu-latest
+    steps:
+# Setups the environment
+      - name: Fail
+        run: exit 1

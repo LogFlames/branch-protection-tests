@@ -36,7 +36,7 @@ jobs:
       - name: Commit and Push (GITHUB TOKEN)
         if: github.event.inputs.token == 'github_token'
         run: |
-          git remote set-url origin https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }}.git
+          # git remote set-url origin https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }}.git
           git remote -v
           git push origin main
       - name: Commit and Push (PERSONAL ACCESS TOKEN)

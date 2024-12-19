@@ -1,4 +1,4 @@
-name: Release
+name: Test Commit Time
 
 on:
   workflow_dispatch:

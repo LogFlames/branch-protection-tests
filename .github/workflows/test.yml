@@ -14,6 +14,10 @@ jobs:
         with:
           fetch-depth: 0
           token: ${{ secrets.ADMIN_GITHUB_TOKEN }}
+      - name: Set git user
+        run: |
+          git config --global user.name "GitHub Actions Bot"
+          git config --global user.email "<>"
       - name: Create file
         run: time >> time.txt
       - name: Commit and Push

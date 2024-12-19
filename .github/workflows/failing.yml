@@ -6,10 +6,9 @@ on:
       - main
 
 jobs:
-  test:
-    name: Test Commit
+  fail:
+    name: Fail
     runs-on: ubuntu-latest
     steps:
-# Setups the environment
       - name: Fail
         run: exit 1

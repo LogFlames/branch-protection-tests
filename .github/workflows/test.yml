@@ -19,6 +19,13 @@ jobs:
     steps:
 # Setups the environment
       - name: Checkout
+        if: github.event.inputs.token == 'github_token'
+        uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4
+        with:
+          fetch-depth: 0
+          token: ${{ secrets.GITHUB_TOKEN }}
+      - name: Checkout
+        if: github.event.inputs.token == 'personal_access_token'
         uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4
         with:
           fetch-depth: 0
@@ -33,15 +40,6 @@ jobs:
         run: |
           git add time.txt
           git commit -m "Commit time"
-      - name: Commit and Push (GITHUB TOKEN)
-        if: github.event.inputs.token == 'github_token'
+      - name: Push
         run: |
-          # git remote set-url origin https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }}.git
-          git remote -v
-          git push origin main
-      - name: Commit and Push (PERSONAL ACCESS TOKEN)
-        if: github.event.inputs.token == 'personal_access_token'
-        run: |
-          git remote set-url origin https://x-access-token:${{ secrets.ADMIN_GITHUB_TOKEN }}@github.com/${{ github.repository }}.git
-          git remote -v
           git push origin main

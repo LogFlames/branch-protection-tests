@@ -1,0 +1,22 @@
+name: Test Action
+
+on:
+  pull_request:
+    branches:
+      - main
+  push:
+    branches:
+      - main
+
+jobs:
+  fail:
+    name: Test Action
+    runs-on: ubuntu-latest
+    steps:
+      - uses: logflames/branch-protection-test@main
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+      - uses: logflames/branch-protection-test@main
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          ref: new_branch

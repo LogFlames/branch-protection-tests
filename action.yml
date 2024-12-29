@@ -26,3 +26,4 @@ runs:
       run: |
         echo "ref: ${{ inputs.ref }}"
         echo "repository: ${{ inputs.repository }}"
+      shell: bash

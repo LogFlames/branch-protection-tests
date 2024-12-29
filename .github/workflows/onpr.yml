@@ -13,7 +13,7 @@ jobs:
     name: Test Action
     runs-on: ubuntu-latest
     steps:
-      - uses: logflames/branch-protection-test@main
+      - uses: LogFlames/branch-protection-tests@main
         with:
           github-token: ${{ secrets.GITHUB_TOKEN }}
       - uses: logflames/branch-protection-test@main
